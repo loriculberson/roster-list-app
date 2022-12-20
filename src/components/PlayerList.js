@@ -2,10 +2,13 @@ import Player from '../components/Player'
 
 import { playerData } from '../data/playerData'
 
-function PlayerList() {
+function PlayerList({ handleFavorites }) {
   const list = playerData.map(player => {
     return (
-      <Player athlete={player} />
+      <Player 
+        athlete={player} 
+        handleFavorites={handleFavorites}
+      />
     )
   })
 

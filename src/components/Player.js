@@ -1,18 +1,14 @@
 function Player(props) {
-  const { athlete } = props
+  const { athlete, handleFavorites } = props
+  const hobbiesList = athlete.hobbies.length 
+                      ? athlete.hobbies.map((hobby, index) => <li>{hobby}</li>)
+                      : <p>No hobbies</p>
   return (
     <div key={athlete.id}>
-    <h3>{athlete.firstName} {athlete.lastName}</h3>
-    <ul>{athlete.hobbies.map((hobby, index) => <li key={index}>{hobby}</li>)}</ul>
+      <h3 onClick={() => handleFavorites(athlete.firstName)}>{athlete.firstName} {athlete.lastName}</h3>
+      <ul>{hobbiesList}</ul>
   </div>
   )
 }
 
 export default Player
-
-/*
-      <div key={player.id}>
-        <h3>{player.firstName} {player.lastName}</h3>
-        <ul>{player.hobbies.map((hobby, index) => <li key={index}>{hobby}</li>)}</ul>
-      </div>
-*/
